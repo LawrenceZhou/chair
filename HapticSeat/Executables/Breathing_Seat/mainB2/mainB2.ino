@@ -53,29 +53,7 @@ void loop() {
   int time = 200;
 
   if (digitalRead(BUTT1_PIN) == LOW) { 
-    //One location/motor, continuous 
-    for (int i = 0; i < bpm; i++)
-    {
-      breathSpotN(breathDuration,3);
-      delay(holdDuration); //hold
-      breathSpotN(breathDuration,5);
-      delay(holdDuration); //hold
-    }
-  }
-
-  if (digitalRead(BUTT2_PIN) == LOW) { 
-    //One location/motor, continuous 
-    for (int i = 0; i < bpm; i++)
-    {
-      breathSpotC(breathDuration,3);
-      delay(holdDuration); //hold
-      breathSpotC(breathDuration,5);
-      delay(holdDuration); //hold
-    }
-  }
-
-  if (digitalRead(BUTT3_PIN) == LOW) {
-    //Two locations/motors, gradual
+    //One location/motor, gradual 
     for (int i = 0; i < bpm; i++)
     {
       breathSpotG(breathDuration,3);
@@ -85,8 +63,8 @@ void loop() {
     }
   }
 
-  if (digitalRead(BUTT4_PIN) == LOW) {
-   //One line, 2 directions up/down, continuous
+  if (digitalRead(BUTT2_PIN) == LOW) { 
+ //One line, 2 directions up/down, continuous
     for (int i = 0; i < bpm; i++)
     {
       breathInStrokeUp(breathDuration);
@@ -94,6 +72,20 @@ void loop() {
       breathOutStrokeDown(breathDuration);
       delay(holdDuration); //hold
     }
+  }
+
+  if (digitalRead(BUTT3_PIN) == LOW) {
+       //One location/motor, once 
+    for (int i = 0; i < bpm; i++)
+    {
+      breathSpotN(breathDuration,3);
+      delay(holdDuration); //hold
+      breathSpotN(breathDuration,5);
+      delay(holdDuration); //hold
+    }
+
+  if (digitalRead(BUTT4_PIN) == LOW) {
+  
     
    }  
 }
